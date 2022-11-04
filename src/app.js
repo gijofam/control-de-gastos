@@ -5,11 +5,14 @@ const db = require('./utils/database')
 const {port} = require('./config')
 const userRouter = require('./users/users.router')
 const authRouter = require('./auth/auth.router')
+const cors = require('cors')
 // Initial configs
 const app = express()
-
 const initModels = require('./models/initiModels')
+
 app.use(express.json())
+
+app.use(cors())
 
 db.authenticate()
   .then(() => {

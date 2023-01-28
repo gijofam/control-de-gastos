@@ -3,8 +3,11 @@ const express = require('express')
 const db = require('./utils/database')
 // files
 const {port} = require('./config')
-const userRouter = require('./users/users.router')
 const authRouter = require('./auth/auth.router')
+const userRouter = require('./users/users.router')
+const tipoEgresoRouter = require('./tiposEgresos/tiposEgresos.router')
+const tipoIngresoRouter = require('./tiposIngresos/tiposIngresos.router')
+const egreso = require('./egresos/egresos.router')
 const cors = require('cors')
 // Initial configs
 const app = express()
@@ -41,6 +44,9 @@ app.get('/', (req, res) => {
 
 app.use('/api/v1/users', userRouter)
 app.use('/api/v1/auth', authRouter)
+app.use('/api/v1/tipos_egresos',tipoEgresoRouter)
+app.use('/api/v1/tipos_ingresos', tipoIngresoRouter)
+app.use('/api/v1/egresos', egreso)
 
 app.listen(port, () => {
     console.log(`Server started at port ${port}`)

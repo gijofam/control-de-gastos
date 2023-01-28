@@ -9,8 +9,8 @@ require('../middlewares/auth.middleware')(passport)
 
 // require('../middlewares/auth.middleware')(passport)
 
-// ruta raiz
-// router.get('/', 
+//   ruta raiz
+//   router.get('/', 
 //   passport.authenticate('jwt', {session: false}),
 //   userServices.getAllUsers)
 
